@@ -8,12 +8,15 @@ deploys:
     instance_group: se-mmf-ssl-instance-group
     instance_template_base: se-mmf-instance-template-2
     instance_template: my-app-${{GITHUB_RUN_NUMBER}}-${{GITHUB_SHA}}
-    #cloud_init: cloud-init.yml # see example dir
-    labels: # will also have gitsha from common section
-      version: ${{APP_VERSION}}
+     cloud_init: cloud-init.yml
+    vars:
+      string_var: "The current directory is:"
+    labels:
+      github_sha: ${{GITHUB_SHA}}
     tags:
-      - my-tag123
+      - no-network
+      - app123
+    metadata:
+      github_run_number: ${{GITHUB_RUN_NUMBER}}
     update_policy:
-      min_ready_sec: 30
-
-delete_instance_templates_after: false
+      min_ready_sec: 20
