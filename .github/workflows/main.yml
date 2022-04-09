@@ -24,4 +24,5 @@ jobs:
         uses: mattes/gce-deploy-action@v5.0.0
         with:
           creds: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
+          config: deploy.yaml
       - run: echo "Deployed to Google Cloud Compute Engine"
