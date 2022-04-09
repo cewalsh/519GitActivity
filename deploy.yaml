@@ -1,6 +1,4 @@
-common:
-  labels:
-    gitsha: ${{GITHUB_SHA}}
+
 
 deploys:
   - name: se-mmf-deploy
